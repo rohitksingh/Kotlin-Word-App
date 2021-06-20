@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.rohitksingh.kotlinwordapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() , ItemclickListener{
 
-    private val adapter : LetterAdapter = LetterAdapter()
+    private val adapter : LetterAdapter = LetterAdapter(this)
     private val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(this)
     private lateinit var binding : ActivityMainBinding
 
@@ -17,6 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         initBinding()
         setupAdapter()
+    }
+
+    override fun itemClicked(word: String) {
+        //Pass that value to Intent
     }
 
     private fun initBinding(){

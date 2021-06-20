@@ -2,15 +2,25 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="itemclicklistner"
+            type="com.rohitksingh.kotlinwordapp.ItemclickListener" />
+        <variable
+            name="letter"
+            type="String" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8sp">
+        android:layout_margin="8sp"
+        android:onClick="@{()->itemclicklistner.itemClicked(letter)}">
         <TextView
             android:id="@+id/letter"
             android:layout_width="0sp"
             android:layout_height="80dp"
             tools:text="A"
+            android:text="@{letter}"
             android:gravity="center"
             android:textSize="32sp"
             android:background="@color/purple_200"
