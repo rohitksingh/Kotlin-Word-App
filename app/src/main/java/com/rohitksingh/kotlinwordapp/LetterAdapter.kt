@@ -1,24 +1,21 @@
 package com.rohitksingh.kotlinwordapp
 
-import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.view.accessibility.AccessibilityEvent
-import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import com.rohitksingh.kotlinwordapp.databinding.ItemListLetterBinding
 
 class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
 
     private val letterList = ('A').rangeTo('Z').toList()
     private val TAG = "LetterAdapter"
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LetterViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_letter, parent, false)
-        return LetterViewHolder(view)
+
+        val binding : ItemListLetterBinding = ItemListLetterBinding
+            .inflate(LayoutInflater.from(parent.context), parent, false)
+        return LetterViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
@@ -28,15 +25,11 @@ class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
 
     override fun getItemCount(): Int = letterList.size
 
-
-    class LetterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private var letterTextView : TextView = itemView.findViewById(R.id.letter)
+    class LetterViewHolder(private val binding: ItemListLetterBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(letter: Char){
-            letterTextView.text = letter.toString()
+            binding.letter.text = letter.toString()
         }
-
     }
 
 }
