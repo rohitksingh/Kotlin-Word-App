@@ -1,6 +1,7 @@
 package com.rohitksingh.kotlinwordapp
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +27,11 @@ class DetailActivity : AppCompatActivity() {
     private fun initRecyclerView(){
         binding.wordRecyclerView.layoutManager = layoutManager
         binding.wordRecyclerView.adapter = adapter
+    }
+
+    private fun receiveValue(){
+        val value = intent?.extras?.getString(MainActivity.LETTER_KEY)
+        Toast.makeText(this, value, Toast.LENGTH_SHORT).show()
     }
 
 }

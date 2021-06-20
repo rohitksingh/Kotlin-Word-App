@@ -13,8 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8sp"
-        android:onClick="@{()->itemclicklistner.itemClicked(letter)}">
+        android:layout_margin="8sp">
         <TextView
             android:id="@+id/letter"
             android:layout_width="0sp"
@@ -27,6 +26,8 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{()->itemclicklistner.itemClicked(letter)}"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
