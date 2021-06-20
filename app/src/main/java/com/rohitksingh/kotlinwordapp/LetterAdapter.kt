@@ -1,10 +1,13 @@
 package com.rohitksingh.kotlinwordapp
 
+import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.accessibility.AccessibilityEvent
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 
 class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
@@ -24,6 +27,7 @@ class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
     }
 
     override fun getItemCount(): Int = letterList.size
+
 
     class LetterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
